@@ -1,0 +1,449 @@
+/*!
+ * Start Bootstrap - Shop Homepage HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    background-color: #F4F4F4;
+
+
+}
+
+ol.breadcrumb {
+    margin-top:35px;
+    margin-bottom:0;
+    padding-left:0px;
+}
+
+
+a:hover, a:focus{
+    text-decoration: none;
+    color:#2ebaae !important;
+}
+
+
+.links ul li {
+    display: inline-block;
+    line-height: 3em;
+    margin-left: 3em;
+
+}
+
+
+.links ul li:first-child{
+    border-left: 0px;
+    margin-left: 0px;
+    padding-left: 0px;
+
+}
+
+.active-link{
+    color: #2ebaae !important;
+}
+
+.links ul li a{
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 16px;
+    color: #fff;
+}
+
+.clear-both{
+    clear:both;
+}
+
+.btn-purchase {
+}
+
+.concert-list {
+    margin-top:-25px;
+}
+
+.month-and-year{
+    margin-top: 30px;text-transform: uppercase;
+}
+
+.single-concert-image {
+    margin-top:20px;
+    position:relative;
+    width: 100%;
+}
+.concert-image {
+    width:100%;
+    margin-top: 10px;
+}
+
+.poster-item {
+    border:1px solid #dddddd;
+    margin-top: 20px;
+    border-radius: 3px;
+    background-color:#fff;
+}
+
+.poster-item:hover, .poster-item:focus {
+    border-color: #00A000;
+}
+
+.poster-image{
+    float:left;
+    padding: 10px;
+    height: 200px!important;
+    width:300px !important;
+}
+
+.concert-list >ul {
+    margin-left:-10px;
+}
+
+.concert-list > ul > li{
+    margin-left: 0;
+}
+
+
+#header {
+    /*position:fixed;*/
+    /*top:0px;*/
+    /*left: 0;*/
+    /*display: block;*/
+    /*width: 100%;*/
+    position:fixed; top:0px; left: 0;  display: block; width: 100%; z-index: 1;
+}
+
+#top-header {
+    height: 56px;
+    background-color:#2DA0DF;
+    width: 100%;
+    display: block;
+}
+
+.left-top-header{
+    margin-left:30px;
+    position: absolute;
+    top: 0px;
+}
+
+.right-top-header button {
+    border: 1px solid white;
+    margin-left: 10px;
+}
+
+.left-top-header > h1 {
+    line-height: 50px;
+    margin-top: 0;
+}
+
+.left-top-header > h1 > a {
+    color:#fff;
+    font-size:30px;
+}
+
+.right-top-header {
+    position:absolute;
+    top:0;
+    right:48px;
+    line-height: 50px;
+}
+
+.right-top-header > h1 {
+    float:left;
+    font-size:15px;
+    font-weight:400 ;
+    color:#fff;
+}
+
+.right-top-header > a {
+    margin-left:20px;
+    font-size: 15px;
+    color:#fff;
+}
+
+nav.links {
+    text-align:center;
+    width: 100%;
+    height: 48px;
+    background-color: #000;
+}
+
+
+.social-links {
+    margin-bottom:30px;
+}
+
+.social-links > a {
+    margin-left:10px;
+}
+
+.thumbnail >div:first-child {
+    max-width: 350px;  height:200px;
+}
+
+.concert-time {
+    margin-left:10px;
+    color:#d17581;
+    margin-top:10px;
+    margin-buttom:10px;
+}
+
+.caption > div {
+    display:inline-block;
+}
+.caption h4:first-child{
+    float:left;
+    margin-right: 20px;
+}
+
+.current-month {
+    text-align:center;
+    line-height: 2em;
+}
+
+a#prev {
+    margin-top:30px;
+    margin-left:30px;
+}
+
+a#prev > span{
+    position:relative;
+    top: 35px;
+    cursor: pointer;
+}
+
+a#next >span {
+    cursor:pointer;;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.date > button {
+    float:left;
+    margin-left: 30px;
+    width:60px;
+    height:50px;
+}
+
+li.date {
+    background-color: #ddddee;
+}
+
+.poster-date{
+    margin-top:5px;
+    margin-bottom: 50px;
+}
+
+.poster-date-of-month{
+    float:left;
+    margin-left: 20px;
+    margin-top:50px;
+}
+
+.poster-date-of-week{
+    float:left;
+    margin-left:20px;
+    margin-top:50px;
+}
+
+.poster-date-of-week > h4{
+    text-transform: uppercase;
+}
+
+.poster-date-of-week > h5{
+    color:#d17581;
+}
+
+.poster-name {
+    float:left;
+    margin-left:40px;
+    margin-top:50px;
+}
+
+.poster-ticket-link {
+    float:right;
+    margin-right:20px;
+    margin-top:70px;
+    margin-bottom: 20px;
+}
+
+.seo-text {
+    margin-top:40px;
+}
+
+.date > a {
+    float:left;
+    margin-left: 35px;
+    width:60px;
+    height:50px;
+    text-decoration: none;
+}
+
+.btn-grey {
+    background-color: #DDDDDD;
+}
+
+.navbar-custom{
+    background:#F9F9F9;
+    border-color: #ffffff;
+}
+.padding {
+    margin-top:50px;
+}
+
+.path{
+    margin-top:15px;
+}
+
+.poster-header{
+    /*margin-top: 10px;*/
+    padding-bottom: 10px;
+}
+
+ul.nav.navbar-right > li  {
+    float:left;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+}
+
+.navigation {
+    border:1px solid black;
+}
+.blog-masthead {
+    background-color: #428bca;
+    -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+    box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+}
+
+.blog-nav-item {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    font-weight: 500;
+    color: #cdddeb;
+}
+
+.blog-nav-item:hover,
+.blog-nav-item:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Active state gets a caret at the bottom */
+.blog-nav .active {
+    color: #fff;
+}
+.blog-nav .active:after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -5px;
+    vertical-align: middle;
+    content: " ";
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid;
+    border-left: 5px solid transparent;
+}
+
+.test{
+    color:#ffffff;
+}
+.slide-image {
+    width: 100%;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
+.caption {
+    height: 130px;
+    overflow: hidden;
+}
+
+.caption h4 {
+    white-space: nowrap;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+
+.hide1{
+    display:none;
+}
+
+.show{
+    display:block;
+}
+
+#popup {
+    width: 100%;
+    height: 100%;
+    opacity: 0.95;
+    top: 0;
+    left: 0;
+    display: none;
+    background-color:#313131;
+    overflow:auto;
+    position:fixed;
+    z-index: 10000;
+}
+
+#popup .content {
+    position:absolute;
+    left:50%;top:12%;
+    width: 800px;
+    height: 500px;
+    border:3px solid grey;
+    margin-left:-400px;
+}
+
+.audio {
+    margin-top:20px;
+}
+
+.concert-detail-time {
+    margin-top:15px;
+}
+
+.ceo-text {
+    margin-top: 20px;
+}
+
+.hr-style{
+    border: 0;height: 1px;background: #333;background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+ul.nav-sidebar > li >a:focus {
+    color: #428bca;
+    background-color: #428bca;
+}
