@@ -1,0 +1,22 @@
+{
+  "name": "concert-hall",
+  "description": "concert-hall-site with nodejs",
+  "main": "app.js",
+  "authors": [
+    "arthur-huynh"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/tuyenhuynh/concert-hall-nodejs",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.3"
+  }
+}
