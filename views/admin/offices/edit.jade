@@ -1,10 +1,10 @@
 extends ../../layouts/admin.jade
 block content
     .main
-      h4.sub-header New Office
+      h4.sub-header Edit Office
       .row
         .col-md-8
-          form(method='POST', action='http://localhost:3000/admin/offices/add', accept-charset='UTF-8', data-toggle='validator')
+          form(method='POST', action='http://localhost:3000/admin/offices/' + office._id +'/edit', accept-charset='UTF-8', data-toggle='validator')
             input(name='_token', type='hidden', value='nj6EPQVVjOkkh8wCWJbRsZwlRsUbJTW9S3a9Ksht')
             .panel.panel-default
               .panel-heading
@@ -14,40 +14,40 @@ block content
                   .col-md-12
                     label.control-label.col-sm-3(for='name') Office name:
                     .col-sm-9
-                      input#name.form-control(placeholder='Soviet Street, 7', required='required', data-error='Office\'s name is required', name='name', type='text')
+                      input#name.form-control(placeholder='Soviet Street, 7', required='required', data-error="Office's name is required", name='name', type='text', value=office.name)
                       .help-block.with-errors
                 .row.form-group
                   .col-md-12
                     label.control-label.col-sm-3(for='address') Address:
                     .col-md-9
-                      input#address.form-control(placeholder='Soviet Street, 7', required='required', data-error='Address is required', name='address', type='text')
+                      input#address.form-control(placeholder='Soviet Street, 7', required='required', data-error='Address is required', name='address', type='text', value=office.address)
                       .help-block.with-errors
                 .row.form-group
                   .col-md-12
                     label.control-label.col-sm-3(for='time_open') Open at:
                     .col-md-9
-                      input#time_open.form-control(placeholder='08:30', required='required', data-error='Invalid value', name='time_open', type='text')
+                      input#time_open.form-control( placeholder='08:30', required='required', data-error='Invalid value', name='time_open', type='text', value=office.time_open)
                       .help-block.with-errors
                 .row.form-group
                   .col-md-12
                     label.control-label.col-sm-3(for='time_close') Close at:
                     .col-md-9
-                      input#time_close.form-control(placeholder='20:00', required='required', data-error='Invalid value', name='time_close', type='text')
+                      input#time_close.form-control(placeholder='20:00', required='required', data-error='Invalid value', name='time_close', type='text', value=office.time_close)
                       .help-block.with-errors
                 .row.form-group
                   .col-md-12
                     label.control-label.col-sm-3(for='latitude') Latitude:
                     .col-md-9
-                      input#latitude.form-control(placeholder='48.70784', required='required', data-error='Invalid value', name='latitude', type='text')
+                      input#latitude.form-control(placeholder='48.70784', required='required', data-error='Invalid value', name='latitude', type='text', value=office.latitude)
                       .help-block.with-errors
                 .row.form-group
                   .col-md-12
                     label.control-label.col-sm-3(for='longtitude') Longtitude:
                     .col-md-9
-                      input#longtitude.form-control(placeholder='44.50572', required='required', data-error='Invalid value', name='longtitude', type='text')
+                      input#longtitude.form-control(placeholder='44.50572', required='required', data-error='Invalid value', name='longtitude', type='text', value=office.longtitude)
                       .help-block.with-errors
                 .row.form-group
                   .col-md-12
                     .col-md-3
                     .col-md-9
-                      input.btn.btn-success.btn-send(type='submit', value='Add')
+                      input.btn.btn-success.btn-send(type='submit', value='Save')

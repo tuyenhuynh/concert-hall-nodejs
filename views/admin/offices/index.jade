@@ -1,0 +1,51 @@
+extends ../../layouts/admin.jade
+block content
+    .main
+          h4.sub-header Offices
+          a.btn.btn-primary(role='button', href='/admin/offices/add') New office
+          .table-responsive
+            table.table.table-striped
+              thead
+                tr
+                  th Name
+                  th Address
+                  th Working regime
+                  th
+                  th
+              tbody
+                each office in offices 
+                    tr
+                      td #{office.name}
+                      td #{office.address}
+                      td From  #{office.time_open} to #{office.time_close}
+                      td(style='padding-right:0px;')
+                        button
+                          a(href='/admin/offices/' + office.id + '/edit')
+                            span.fa.fa-edit
+                      td(style='padding-left:0px;')
+                        button
+                          a.btn-power-off(href='', data-toggle='modal', data-target='#myModal')
+                            span.fa.fa-power-off
+                            span.link-remove /admin/offices/#{office.id}
+          // Modal
+          #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+            .modal-dialog.modal-sm(role='document')
+              .modal-content.modal-center
+                .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+                  h4#myModalLabel.modal-title
+                .modal-body
+                  | Do you want to remove selected office ?
+                .modal-footer
+                  button.btn.btn-default(type='button', data-dismiss='modal') Закрыть
+                  .form-remove
+                    form#form-remove(method='POST', action='http://localhost:3000/admin/offices/-1', accept-charset='UTF-8')
+                      input(name='_method', type='hidden', value='DELETE')
+                      input(name='_token', type='hidden', value='nj6EPQVVjOkkh8wCWJbRsZwlRsUbJTW9S3a9Ksht')
+                      input.btn.btn-danger(type='submit', value='Удалить')
+          script(type='text/javascript').
+            $('.btn-power-off').click(function () {
+                var link = $(this).children('.link-remove').html();
+                $('#form-remove').attr('action', link);
+            });
