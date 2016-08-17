@@ -1,0 +1,164 @@
+extends ../layouts/app.jade 
+
+block content
+    .container
+      .padding
+      .row.current-month
+        h4.current-month(style='font-weight: 400;')
+      div
+    .container.poster-date
+      .row(style='float: none; margin: 0 auto;')
+        .col-md-12.col-xs-12.col-centered
+          a#prev.left
+            span.glyphicon.glyphicon-chevron-left
+          ul#dates
+            li.date
+              button.btn.btn-default
+                | ПН
+                br
+                | 11
+            li.date
+              button.btn.btn-default
+                | ПН
+                br
+                | 11
+            li.date
+              button.btn.btn-default
+                | ПН
+                br
+                | 11
+            li.date
+              button.btn.btn-default
+                | ПН
+                br
+                | 11
+            li.date
+              button.btn.btn-default
+                | ПН
+                br
+                | 11
+            li.date
+              button.btn.btn-default
+                | ПН
+                br
+                | 11
+            li.date
+              button.btn.btn-default
+                | ПН
+                br
+                | 11
+            li.date
+              button.btn.btn-default
+                | ПН
+                br
+                | 11
+            li.date
+              button.btn.btn-default
+                | ПН
+                br
+                | 11
+            li.date
+              button.btn.btn-default
+                | ПН
+                br
+                | 11
+            li.date
+              button.btn.btn-default
+                | ПН
+                br
+                | 11
+          a#next.right(style='margin-left:20px')
+            span.glyphicon.glyphicon-chevron-right
+    div(style='display: none')
+      ul#date-of-concerts
+        li
+          | Jul 30, 2016
+        li
+          | Jul 30, 2016
+        li
+          | Aug 01, 2016
+    // Page Content
+    .container
+      .row
+        .col-md-12
+          .row
+            ul#concerts
+              li
+                .col-sm-6.col-lg-4.col-md-4
+                  .thumbnail
+                    div
+                      img(src='/images/1469778086adele.jpg', style='height:100%;')
+                    .caption
+                      div
+                        h4
+                          a(href='/afisha/Adele From England/30072016') Adele From England
+                        h4  17+
+                      p
+                        | It's a little bit funny
+                        | This feeling inside
+                        | I'm not one of those who can
+                        | Easily hide
+                        | I don't have much money
+                        | But boy if I did
+                        | I'd buy a big house where
+                        | We both could live.
+                        | So excuse me forgetting
+                        | But these things I do
+                        | See I've forgotten if
+                        | They
+                    .concert-time
+                      p
+                        span.glyphicon.glyphicon-time(style='margin-right: 5px')
+                        |                                                 30 июля, 10:30
+                    .text-center.center-block
+                      button.btn.btn-primary.btn-purchase(type='button', style='margin-bottom: 20px')
+                        | Купить билет
+                        span(style='display: none') https://vlg.kassir.ru/kassir/action/view/5155?iframedomain=volgocirk.ru
+              li
+                .col-sm-6.col-lg-4.col-md-4
+                  .thumbnail
+                    div
+                      img(src='/images/1469778120eminem.jpg', style='height:100%;')
+                    .caption
+                      div
+                        h4
+                          a(href="/afisha/Arthur's Concert/30072016") Arthur's Concert
+                        h4  20+
+                      p
+                        | Come on, come on, turn the radio on
+                        | It's Friday night and I won't be long
+                        | Gotta do my hair, I put my make up on
+                        | It's Friday night and I won't be long
+                        | 'Til I hit the dance floor
+                        | Hit the dance floor
+                        | I got all I need
+                        | No I ain't got cash
+                        | I ain't g
+                    .concert-time
+                      p
+                        span.glyphicon.glyphicon-time(style='margin-right: 5px')
+                        |                                                 30 июля, 10:41
+                    .text-center.center-block
+                      button.btn.btn-primary.btn-purchase(type='button', style='margin-bottom: 20px')
+                        | Купить билет
+                        span(style='display: none') https://vlg.kassir.ru/kassir/action/view/5155?iframedomain=volgocirk.ru
+              li
+                .col-sm-6.col-lg-4.col-md-4
+                  .thumbnail
+                    div
+                      img(src='/images/1469778158justin_tiberlake.jpg', style='height:100%;')
+                    .caption
+                      div
+                        h4
+                          a(href='/afisha/Justin Timberlake/01082016') Justin Timberlake
+                        h4  20+
+                      p
+                        | Ay, lemme kick it to you right quick man Not on some gangsta shit man on some real shit Anybody who been through the same thing I'm sure you feel the same way  Oh hey, I've been travelin' on this road too long Just tryin' to find my way back home But the
+                    .concert-time
+                      p
+                        span.glyphicon.glyphicon-time(style='margin-right: 5px')
+                        |                                                 01 августа, 10:45
+                    .text-center.center-block
+                      button.btn.btn-primary.btn-purchase(type='button', style='margin-bottom: 20px')
+                        | Купить билет
+                        span(style='display: none') http://volgocirk.ru

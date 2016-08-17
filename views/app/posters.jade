@@ -1,0 +1,74 @@
+extends ../layouts/app.jade
+
+block content
+    .container
+      div
+        ol.breadcrumb
+          li
+            a(href='http://concerthall.com/index') Главная
+          li.active Афиша концертов
+      .poster-header
+        h3 Aфиша концертов ЦКЗ
+      div
+    .container
+      .row.concert-list
+        ul
+          .row.month-and-year
+            h4 июля 2016
+          li
+            .row.poster-item
+              img.poster-image(src='/images/1469778086adele.jpg', alt='')
+              .concert-poster-detail
+                .poster-date-of-month
+                  h2 30
+                .poster-date-of-week
+                  h5 Субботу
+                  h4 июля 2016
+                .poster-name
+                  h3
+                    a(href='/afisha/Adele From England/30072016') Adele From England
+                .poster-ticket-link
+                  button.btn.btn-success.btn-purchase(role='button')
+                    | Билеты
+                    span(style='display:none')
+                      | https://vlg.kassir.ru/kassir/action/view/5155?iframedomain=volgocirk.ru
+          li
+            .row.poster-item
+              img.poster-image(src='/images/1469778120eminem.jpg', alt='')
+              .concert-poster-detail
+                .poster-date-of-month
+                  h2 30
+                .poster-date-of-week
+                  h5 Субботу
+                  h4 июля 2016
+                .poster-name
+                  h3
+                    a(href="/afisha/Arthur's Concert/30072016") Arthur's Concert
+                .poster-ticket-link
+                  button.btn.btn-success.btn-purchase(role='button')
+                    | Билеты
+                    span(style='display:none')
+                      | https://vlg.kassir.ru/kassir/action/view/5155?iframedomain=volgocirk.ru
+        ul
+          .row.month-and-year
+            h4 августа 2016
+          li
+            .row.poster-item
+              img.poster-image(src='/images/1469778158justin_tiberlake.jpg', alt='')
+              .concert-poster-detail
+                .poster-date-of-month
+                  h2 01
+                .poster-date-of-week
+                  h5 Понидельник
+                  h4 августа 2016
+                .poster-name
+                  h3
+                    a(href='/afisha/Justin Timberlake/01082016') Justin Timberlake
+                .poster-ticket-link
+                  button.btn.btn-success.btn-purchase(role='button')
+                    | Билеты
+                    span(style='display:none')
+                      | http://volgocirk.ru
+    .container
+      .seo-text
+        | Концертная и театральная афиша Волгограда, купить билеты в ЦКЗ

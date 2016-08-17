@@ -1,0 +1,82 @@
+extends ../layouts/app.jade
+block content
+    .container
+          ol.breadcrumb
+            li
+              a(href='http://concerthall.com/index') Главная
+            li.active Контакты
+        .container
+          .row
+            .col-md-6
+              h3 Обратная связь
+              form#form-feedback(method='POST', action='http://concerthall.com/contact', accept-charset='UTF-8', data-toggle='validator')
+                input(name='_token', type='hidden', value='0to50ddN0z6Fhn03Eltq2swVIGQlVtHngMNvu0ag')
+                .contact-form(style='margin-top:20px')
+                  .row
+                    .col-md-6
+                      .form-group
+                        input#firstname.form-control(placeholder='Имя', required='required', data-error='Поле имя требуется.', name='firstname', type='text')
+                        .help-block.with-errors
+                    .col-md-6
+                      .form-group
+                        input#lastname.form-control(placeholder='Фамилия', required='required', data-error='Поле имя требуется.', name='lastname', type='text')
+                        .help-block.with-errors
+                  .row
+                    .col-md-12
+                      .form-group
+                        input#email.form-control(placeholder='Email адрес', required='required', data-error='формат поля email не правильно .', name='email', type='email')
+                        .help-block.with-errors
+                  .row
+                    .col-md-12
+                      .form-group
+                        textarea#message.form-control(rows='10', placeholder='Текст', required='required', data-error='Поле текст требуется.', name='message', cols='50')
+                        .help-block.with-errors
+                    .col-md-12
+                      input.btn.btn-success.btn-send(type='submit', value='Отправить')
+            .col-md-6
+              h3 О проекте
+              p
+                |   Компания KASSIR.RU была основана в 1999 году в Санкт-Петербурге. Сегодня KASSIR.RU осуществляет бронирование и продажу билетов на все события Москвы, Санкт-Петербурга, Нижнего Новгорода, Екатеринбурга, Челябинска и Перми. Особенностью системы заказа и бронирования билетов является возможность работы в едином билетном поле.
+                br
+                br
+                |   Сайт компании KASSIR.RU содержит подробную информацию о культурно-зрелищных событиях, схемы концертных площадок и театральных залов, информацию о кассах продаж наших партнеров. Посещаемость сайта на сегодняшний день составляет 25 000 посетителей в сутки. Для удобства клиента возможны практически все существующие на сегодняшний день способы оплаты билетов, кроме того KASSIR.RU имеет собственную службу доставки билетов.
+                br
+                br
+                |   Вы можете с нами связаться по почте contact@kassir.com
+        #feedbackSuccess.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+          .modal-dialog(role='document', style='top:150px; left: 15%')
+            .modal-content.modal-sm
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') ×
+                h4#myModalLabel.modal-title Сообщение отправлено
+              .modal-body
+                | Спасибо за вашу обратную связь
+              .modal-footer
+                button#btn-close.btn.btn-primary(type='button') Закрыть
+        script(type='text/javascript').
+          <script type="text/javascript">
+            $("#form-feedback").submit(function(e){
+                e.preventDefault();
+                var username = $('#firstname').val() + " " + $("#lastname").val();
+                var email = $('#email').val();
+                var message = $('#message').val();
+                var token = $('meta[name="csrf-token"]').attr('content');
+                $.ajax({
+                    url:'/ajax_post_feedback',
+                    type:'POST',
+                    data: {
+                        'username': username,
+                        'email':email,
+                        'message': message
+                    },
+                    success: function(data){
+                        $('#feedbackSuccess').modal('show');
+
+                    }
+                }) ;
+            });
+            $('#btn-close').click(function(){
+                window.location.href = "/";
+            });
+

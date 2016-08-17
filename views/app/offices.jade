@@ -1,0 +1,91 @@
+extends ../layouts/app.jade
+block content
+    .container.office-container
+      ol.breadcrumb
+        li
+          a(href='http://concerthall.com/index') Главная
+        li.active Кассы
+      .poster-header
+        h3 Кассы продаж
+    .container.office-container
+      .row
+        div(style='display: none')
+          ul
+            li.office
+              span.lat 48.708048
+              span.long 44.513303
+              span.office_name Краснознаменская Улица, 7
+            li.office
+              span.lat 48.709336
+              span.long 44.529876
+              span.office_name ул. Hабережная 62-й Армии
+            li.office
+              span.lat 48.710033
+              span.long 44.526944
+              span.office_name Комсомольская
+      div
+        script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCL-lqH-yssRE616SNDJWf6SyFBmvPCX8Q&v=3.exp')
+        div(style='overflow:hidden;height:440px;width:px;')
+          #gmap_canvas(style='height:440px;width:px;')
+          div
+            small
+              a(href='http://embedgooglemaps.com') embed google maps
+          div
+            small
+              a(href='https://termsofusegenerator.net') terms of use generator
+        script(type='text/javascript').
+          function init_map(){
+          var myOptions = {
+          zoom:12,
+          center:new google.maps.LatLng(48.708048,44.5133034),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+          map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+          var offices = $('ul > li.office');
+          var length = offices.length;
+          var markers = [];
+          var infowindows = [];
+          for(var i = 0 ; i< length ; ++i) {
+          var data = offices.eq(i).children();
+          var lat = data.eq(0).html(),
+          long = data.eq(1).html(),
+          name = data.eq(2).html();
+          console.log("lat: " + lat +", long: " + long + " name: " +name);
+          var marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(lat,long)});
+          markers.push(marker);
+          var infowindow = new google.maps.InfoWindow({
+          content:'<strong>' + name + '</strong><br>Volgograd, Russia<br>'});
+          infowindows.push(infowindow);
+          google.maps.event.addListener(
+          marker,
+          'click',
+          function(){
+          infowindow.open(map,marker);
+          console.log(marker.position);
+          });
+          infowindow.open(map,marker);
+          }
+          }
+          google.maps.event.addDomListener(window, 'load', init_map);
+    .container.office-container.office-list(style='margin-top: 20px')
+      div
+        h3 Адресы офисов
+        table.table.table-striped.table-bordered(style='margin-top:10px')
+          thead
+            tr
+              th Название 
+              th Адрес
+              th Режим работы
+          tbody
+            tr
+              td Краснознаменская Улица, 7
+              td Краснознаменская Улица 7
+              td с 08:30 до 18:30
+            tr
+              td ул. Hабережная 62-й Армии
+              td ул. Hабережная 62-й Армии
+              td с 08:30 до 16:50
+            tr
+              td Комсомольская
+              td Комсомольская
+              td с 09:00 до 20:00

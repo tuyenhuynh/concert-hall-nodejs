@@ -1,0 +1,272 @@
+extends ../layouts/admin.jade
+
+block content
+    information
+    h4.sub-header Администрация
+    .row
+      .col-md-10
+        form#form-phone-number(method='POST', accept-charset='UTF-8', data-toggle='validator')
+          input(name='_token', type='hidden', value='0to50ddN0z6Fhn03Eltq2swVIGQlVtHngMNvu0ag')
+          .panel.panel-default
+            .panel-heading
+              strong Редактировать контактный телефон
+            .panel-body
+              .row.form-group
+                .col-md-12
+                  label.control-label.col-sm-3(for='phone_number') Контактный телефон:
+                  .col-sm-9
+                    input#phone_number.form-control(placeholder='+7 (84 42) 36 12 73', required='required', data-error='Поле контактный телефон требуется', name='phone_number', type='text', value=information.phone_number)
+                    .help-block.with-errors
+              .row.form-group
+                .col-md-12
+                  .col-sm-9.col-sm-offset-3
+                    input.btn.btn-success.btn-send(type='submit', value='Сохранить')
+    .row
+      .col-md-10
+        form#form-default-purchase-code(method='POST', action='http://concerthall.com/admin', accept-charset='UTF-8', data-toggle='validator')
+          input(name='_token', type='hidden', value='0to50ddN0z6Fhn03Eltq2swVIGQlVtHngMNvu0ag')
+          .panel.panel-default
+            .panel-heading
+              strong Редактировать код покупки по умолчанию
+            .panel-body
+              .row.form-group
+                .col-md-12
+                  label.control-label.col-sm-3(for='default_purchase_code') Код покупки по умолчанию:
+                  .col-sm-9
+                    input#default_purchase_code.form-control(placeholder='', required='required', data-error='Код покупки по умолчанию', name='default_purchase_code', type='text', value=information.default_purchase_code)
+                    .help-block.with-errors
+              .row.form-group
+                .col-md-12
+                  .col-sm-9.col-sm-offset-3
+                    input.btn.btn-success.btn-send(type='submit', value='Сохранить')
+    .row
+      .col-md-10
+        form#form-company-info(method='POST', action='http://concerthall.com/admin', accept-charset='UTF-8', data-toggle='validator')
+          input(name='_token', type='hidden', value='0to50ddN0z6Fhn03Eltq2swVIGQlVtHngMNvu0ag')
+          .panel.panel-default
+            .panel-heading
+              strong Редактировать информацию о проекте
+            .panel-body
+              .row.form-group
+                .col-md-12
+                  label.control-label.col-sm-3(for='company_info') О проекте:
+                  .col-sm-9
+                    textarea#company_info.form-control(rows='20', placeholder='', required='required', data-error='О проекте требуестя', name='company_info', cols='50')
+                     | #{information.company_info}
+                    .help-block.with-errors
+              .row.form-group
+                .col-md-12
+                  .col-sm-9.col-sm-offset-3
+                    input.btn.btn-success.btn-send(type='submit', value='Сохранить')
+    .row
+      .col-md-10
+        form#form-hall-schema(method='POST', action='http://concerthall.com/admin/update_hall_schema', accept-charset='UTF-8', enctype='multipart/form-data')
+          input(name='_token', type='hidden', value='0to50ddN0z6Fhn03Eltq2swVIGQlVtHngMNvu0ag')
+          .panel.panel-default
+            .panel-heading
+              strong Загрузить новую схему
+            .panel-body
+              .row.form-group
+                .col-md-12
+                  label.control-label.col-sm-3(for='hall_schema') Схема зала:
+                  .col-sm-9
+                    input#hall_schema(name='hall_schema', type='file')
+                    .help-block.with-errors
+              .row.form-group
+                .col-md-12
+                  .col-sm-9.col-sm-offset-3
+                    input.btn.btn-success.btn-send(type='submit', value='Сохранить')
+    .row
+      .col-md-10
+        form#form-hall-text(method='POST', action='http://concerthall.com/admin', accept-charset='UTF-8', data-toggle='validator', enctype='multipart/form-data')
+          input(name='_token', type='hidden', value='0to50ddN0z6Fhn03Eltq2swVIGQlVtHngMNvu0ag')
+          .panel.panel-default
+            .panel-heading
+              strong Текст после схемы зала
+            .panel-body
+              .row.form-group
+                .col-md-12
+                  label.control-label.col-sm-3(for='hall_text') Текст после схемы зала:
+                  .col-sm-9
+                    textarea#hall_text.form-control(rows='10', placeholder='', required='required', data-error='Поле Текст после схемы зала требуется', name='hall_text', cols='50') 
+                     | #{information.hall_text}
+                    .help-block.with-errors
+              .row.form-group
+                .col-md-12
+                  .col-sm-9.col-sm-offset-3
+                    input.btn.btn-success.btn-send(type='submit', value='Сохранить')
+    .row
+      .col-md-10
+        form#form-ceo-text(method='POST', action='http://concerthall.com/admin', accept-charset='UTF-8', data-toggle='validator', enctype='multipart/form-data')
+          input(name='_token', type='hidden', value='0to50ddN0z6Fhn03Eltq2swVIGQlVtHngMNvu0ag')
+          .panel.panel-default
+            .panel-heading
+              strong СЕО текст
+            .panel-body
+              .row.form-group
+                .col-md-12
+                  label.control-label.col-sm-3(for='ceo_text') СЕО текст:
+                  .col-sm-9
+                    textarea#ceo_text.form-control(rows='10', placeholder='', required='required', data-error='Поле СЕО текст требуется', name='ceo_text', cols='50') 
+                     | #{information.seo_text}
+                    .help-block.with-errors
+              .row.form-group
+                .col-md-12
+                  .col-sm-9.col-sm-offset-3
+                    input.btn.btn-success.btn-send(type='submit', value='Сохранить')
+    .row
+      .col-md-10
+        form#form-office-location(method='POST', action='http://concerthall.com/admin', accept-charset='UTF-8', data-toggle='validator', enctype='multipart/form-data')
+          input(name='_token', type='hidden', value='0to50ddN0z6Fhn03Eltq2swVIGQlVtHngMNvu0ag')
+          .panel.panel-default
+            .panel-heading
+              strong Позиция на карте
+            .panel-body
+              .row.form-group
+                .col-md-12
+                  label.control-label.col-sm-3(for='office_location') Позиция на карте:
+                  .col-sm-9
+                    select#office_location.form-control(name='office_location', required='required', data-error='Поле позиция на карте текст требуется')
+                     each office in offices
+                      option(value=office._id) 
+                        |#{office.name}
+                    .help-block.with-errors
+              .row.form-group
+                .col-md-12
+                  .col-sm-9.col-sm-offset-3
+                    input.btn.btn-success.btn-send(type='submit', value='Сохранить')
+    .row
+      .col-md-10
+        form#form-social-network(method='POST', action='http://concerthall.com/admin', accept-charset='UTF-8', data-toggle='validator')
+          input(name='_token', type='hidden', value='0to50ddN0z6Fhn03Eltq2swVIGQlVtHngMNvu0ag')
+          .panel.panel-default
+            .panel-heading
+              strong Социальная сеть
+            .panel-body
+              .row.form-group
+                .col-md-12
+                  label.control-label.col-sm-3(for='facebook_url') Facebook:
+                  .col-sm-9
+                    input#facebook_url.form-control(placeholder='facebook.com', required='required', data-error='Поле facebook требуется', name='facebook_url', type='text', value=information.facebook_url)
+                    .help-block.with-errors
+              .row.form-group
+                .col-md-12
+                  label.control-label.col-sm-3(for='vk_url') VKontakte:
+                  .col-sm-9
+                    input#vk_url.form-control(placeholder='vk.com', required='required', data-error='Поле VKontakte требуется', name='vk_url', type='text', value=information.vk_url)
+                    .help-block.with-errors
+              .row.form-group
+                .col-md-12
+                  label.control-label.col-sm-3(for='twitter_url') Twitter:
+                  .col-sm-9
+                    input#twitter_url.form-control(placeholder='twitter.com', required='required', data-error='Поле Twitter требуется', name='twitter_url', type='text', value=information.twitter_url)
+                    .help-block.with-errors
+              .row.form-group
+                .col-md-12
+                  label.control-label.col-sm-3(for='instagram_url') Instagram:
+                  .col-sm-9
+                    input#instagram_url.form-control(placeholder='instagram.com', required='required', data-error='Поле Instagram требуется', name='instagram_url', type='text', value=information.instagram_url)
+                    .help-block.with-errors
+              .row.form-group
+                .col-md-12
+                  .col-sm-9.col-sm-offset-3
+                    input.btn.btn-success.btn-send(type='submit', value='Сохранить')
+    script(type='text/javascript').
+      $(document).ready(function() {
+            $(function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-XSRF-Token': $('meta[name="_token"]').attr('content')
+                    }
+                });
+            });
+
+            var token = $('meta[name="csrf-token"]').attr('content');
+
+            var  ajaxPostText = function(_data, url) {
+                $.ajax({
+                    url:url,
+                    type:'POST',
+                    data: _data ,
+                    success: function(data){
+                        alert(data);
+                    }
+                });
+            };
+
+            $('#form-phone-number').submit(function(e){
+                e.preventDefault();
+                var phone_number = $('#phone_number').val();
+                ajaxPostText({'phone_number': phone_number, '_token': token}, '/admin/update_phone_number');
+            });
+
+            $('#form-default-purchase-code').submit(function(e){
+                e.preventDefault();
+                var default_purchase_code = $('#default_purchase_code').val();
+                ajaxPostText({
+                    'default_purchase_code': default_purchase_code,
+                    '_token': token
+                }, '/admin/update_default_purchase_code')
+            });
+
+
+            $('#form-company-info').submit(function(e){
+                e.preventDefault();
+
+                var company_info = $('#company_info').val();
+                ajaxPostText({
+                    'company_info': company_info,
+                    '_token': token
+                }, '/admin/update_company_info');
+            });
+
+            $('#form-hall-text').submit( function(e){
+                e.preventDefault();
+
+                var hall_text = $('#hall_text').val();
+                ajaxPostText({
+                    'hall_text': hall_text,
+                    '_token': token
+                }, '/admin/update_hall_text');
+            });
+
+            $('#form-ceo-text').submit(function(e){
+                e.preventDefault();
+
+                var ceo_text = $('#ceo_text').val();
+                ajaxPostText({
+                    'ceo_text': ceo_text,
+                    '_token': token
+                }, '/admin/update_ceo_text');
+
+            });
+
+            $('#form-office-location').submit(function(e){
+                e.preventDefault();
+
+                var office_location = $('#office_location option').filter(":selected").text();
+
+                ajaxPostText({
+                    'office_location': office_location,
+                    '_token': token
+                }, '/admin/update_office_location');
+            });
+
+            $('#form-social-network').submit(function(e){
+                e.preventDefault();
+                var facebook_url =  $('#facebook_url').val();
+                var vk_url =  $('#vk_url').val();
+                var twitter_url =  $('#twitter_url').val();
+                var instagram_url =  $('#instagram_url').val();
+
+                console.log(token);
+                ajaxPostText({
+                    'facebook_url': facebook_url,
+                    'vk_url': vk_url,
+                    'twitter_url': twitter_url,
+                    'instagram_url': instagram_url,
+                    '_token': token
+                }, '/admin/update-social-network-link');
+            });
+
+        });

@@ -1,0 +1,59 @@
+extends ../../layouts/admin.jade
+block content
+    .main
+      h4.sub-header Edit user
+      .row
+        .col-md-8
+          form(method='POST', action='http://localhost:3000/admin/users/'+user.id+'/edit', accept-charset='UTF-8', data-toggle='validator')
+            input(name='_token', type='hidden', value='cSfuNZEfWR8oGPKBxT4QsuaO1fLzUELy9HMbsnP7')
+            .panel.panel-default
+              .panel-heading
+                strong Edit user
+              .panel-body
+                .row.form-group
+                  .col-md-12
+                    label.control-label.col-sm-3(for='name') Username:
+                    .col-sm-9
+                      input#name.form-control(placeholder='Name', required='required', data-error='Username is required', name='name', type='text' value=user.name)
+                      .help-block.with-errors
+                .row.form-group
+                  .col-md-12
+                    label.control-label.col-sm-3(for='email') Email:
+                    .col-md-9
+                      input#email.form-control(data-minlength='4', placeholder='email', required='required', data-error='Email is required', name='email', type='text' value=user.email)
+                      .help-block.with-errors
+                .row.form-group
+                  .col-md-12
+                    label.control-label.col-sm-3(for='password') Password:
+                    .col-md-9
+                      input#password.form-control(data-minlength='6', placeholder='пароль', required='required', data-error='Password is required', name='password', type='text')
+                      .help-block.with-errors
+                .row.form-group
+                  .col-md-12
+                    label.control-label.col-sm-3(for='role_id')  Role
+                    .col-md-9
+                      select#role_id.form-control(required='required', name='role_id')
+                        if user.role_id == 0
+                            option(value='0', selected='selected') Admin
+                            option(value='1') User
+                        else
+                            option(value='0') Admin
+                            option(value='1', selected='selected') User
+                      .help-block.with-errors
+                .row.form-group
+                  .col-md-12
+                    label.control-label.col-sm-3(for='is_active')  Active
+                    .col-md-9
+                      select#is_active.form-control(required='required', name='is_active')
+                        if user.is_active
+                            option(value='1', selected='selected') Yes
+                            option(value='0') No
+                        else 
+                            option(value='1' ) Yes
+                            option(value='0',selected='selected') No
+                      .help-block.with-errors
+                .row.form-group
+                  .col-md-12
+                    .col-md-3
+                    .col-md-9
+                      input.btn.btn-success.btn-send(type='submit', value='Save')

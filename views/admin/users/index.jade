@@ -1,0 +1,38 @@
+extends ../../layouts/admin.jade
+block content
+    .main
+      h4.sub-header User
+      a.btn.btn-primary(href='/admin/users/add', role='button') New user
+      .table-responsive
+        table.table.table-striped
+          thead
+            tr
+              th Username
+              th Email
+              th Active
+              th Role
+              th
+              th
+          tbody
+            each user in users
+                tr
+                  td #{user.name}
+                  td #{user.email}
+                  td 
+                    if user.is_active
+                        | Yes
+                    else
+                        | No
+                  td #{user.role_id}
+                  td(style='padding-right:0px;')
+                    button
+                      a(href='/admin/users/' +user._id + '/edit')
+                        span.fa.fa-edit
+                  td(style='padding-left:0px;')
+                    button
+                      if user.is_active
+                          a(href='/admin/users/' +user._id + '/deactivate')
+                            span.fa.fa-power-off
+                      else 
+                          a(href='/admin/users/' +user._id + '/activate')
+                            span.fa.fa-power-on
