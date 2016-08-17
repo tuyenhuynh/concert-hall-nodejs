@@ -1,0 +1,35 @@
+extends ../../layouts/admin.jade
+
+block content
+    .main
+      h4.sub-header Message
+      .row
+        .col-md-8
+          .panel.panel-default
+            .panel-heading
+              strong #
+            .panel-body
+              .row.form-group
+                .col-md-12
+                  .col-sm-2
+                    strong From
+                  .col-sm-10
+                    | #{feedback.username}
+              .row.form-group
+                .col-md-12
+                  .col-sm-2
+                    strong Email:
+                  .col-sm-10
+                    | #{feedback.email}
+              .row.form-group
+                .col-md-12
+                  .col-sm-2
+                    strong Created at:
+                  .col-sm-10
+                    | #{feedback.created_at}
+              .row.form-group
+                .col-md-12
+                  .col-sm-2
+                    strong Content
+                  .col-sm-10
+                    | #{feedback.content}

@@ -1,0 +1,53 @@
+extends ../../layouts/admin.jade
+block content
+    .main
+      h4.sub-header Feedbacks
+      .table-responsive
+        table.table.table-striped
+          thead
+            tr
+              th From
+              th Email
+              th Message
+              th Time created
+              th
+              th
+          tbody
+              each feedback in feedbacks    
+                tr
+                  td #{feedback.username}
+                  td #{feedback.email}
+                  td #{feedback.message}
+                  td #{feedback.created_at}
+                  td(style='padding-right:0px')
+                    button
+                      a(href='/admin/feedbacks/'+feedback.id)
+                        span.fa.fa-eye
+                  td(style='padding-left: 0px')
+                    // Button trigger modal
+                    button.btn-power-off(data-toggle='modal', data-target='#myModal')
+                      span.fa.fa-power-off
+                      span.link-remove /admin/feedbacks/#{feedback._id}
+      // Modal
+      #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+        .modal-dialog.modal-sm(role='document')
+          .modal-content.modal-center
+            .modal-header
+              button.close(type='button', data-dismiss='modal', aria-label='Close')
+                span(aria-hidden='true') ×
+              h4#myModalLabel.modal-title
+            .modal-body
+              | Do you want to remove the selected message?
+            .modal-footer
+              button.btn.btn-default(type='button', data-dismiss='modal') Close
+              .form-remove
+                form#form-remove(method='POST', action='http://localhost:3000/admin/feedbacks/-1', accept-charset='UTF-8')
+                  input(name='_method', type='hidden', value='DELETE')
+                  input(name='_token', type='hidden', value='YhsCQEKJnh1qCEKJcIG4AgNPEv29MPzjGOreG4Gx')
+                  input.btn.btn-danger(type='submit', value='Delete')
+      script(type='text/javascript').
+        $('.btn-power-off').click(function () {
+            var link = $(this).children('.link-remove').html();
+            console.log(link);
+            $('#form-remove').attr("action", link);
+        });
