@@ -35,3 +35,15 @@ db.information.insert({
     vk_url: 'http://vk.com', 
     twitter_url: 'http://twitter.com/tuyenhm93'
 }); 
+
+db.concerts.insert({
+    name: "Justin Timerlake", 
+    description: 'A Justine Timberlake Concert', 
+    date_time: Date.now, 
+    audio_path:'', 
+    photo_path:'/images/1469778158justin_tiberlake.jpg', 
+    purchase_code:'https://vlg.kassir.ru/kassir/action/view/5155?iframedomain=volgocirk.ru', 
+    is_active: true, 
+    lim_age: 16
+}); 
+
