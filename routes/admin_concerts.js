@@ -96,7 +96,7 @@ router.route('/:id/edit')
              photo_path: photo_path, 
              purchase_code: body.purchase_code, 
              is_active: body.is_active==1?true:false, 
-             lime_age: body.lim_age});
+             lime_age: body.lim_age
         }, 
         function(err, concert) {
             if(err) {

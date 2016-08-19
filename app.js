@@ -1,12 +1,15 @@
 var express = require("express");
 var mongoose  = require('mongoose'); 
 var bodyParser = require('body-parser'); 
+var passport = require('passport');
 
-var adminRouter  = require('./routers/admin'); 
-var adminUsersRouter  = require('./routers/admin_users');
-var adminOfficesRouter = require('./routers/admin_offices'); 
-var adminFeedbacksRouter = require('./routers/admin_feedbacks'); 
-var adminConcertsRouter = require('./routers/admin_concerts'); 
+var adminRouter  = require('./routes/admin'); 
+var adminUsersRouter  = require('./routes/admin_users');
+var adminOfficesRouter = require('./routes/admin_offices'); 
+var adminFeedbacksRouter = require('./routes/admin_feedbacks'); 
+var adminConcertsRouter = require('./routes/admin_concerts'); 
+
+var basicAuth = require('./auth/basic');
 
 var app  = express(); 
 var port = process.env.PORT || 3000; 
@@ -27,15 +30,16 @@ app.set('views', './views' );
 app.set('view engine', 'jade'); 
 app.use(bodyParser.urlencoded({extended:true})); 
 
-
-app.use('/admin/users', adminUsersRouter);
-app.use('/admin/offices', adminOfficesRouter);
-app.use('/admin/feedbacks', adminFeedbacksRouter); 
-app.use("/admin", adminRouter); 
+ app.use(passport.initialize()); 
 
 app.get('/', function(req, res) {
     res.render('app/index.jade', {title:"Central Concert Hall"});  
 });
+
+app.use('/admin/users', basicAuth.isAuthenticated, adminUsersRouter);
+app.use('/admin/offices', basicAuth.isAuthenticated, adminOfficesRouter);
+app.use('/admin/feedbacks',basicAuth.isAuthenticated,  adminFeedbacksRouter); 
+app.use("/admin", adminRouter); 
 
 app.get('/index', function(req, res){
     res.redirect('/'); 

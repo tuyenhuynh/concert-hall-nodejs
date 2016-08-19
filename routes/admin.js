@@ -4,8 +4,11 @@ var Office = require('../models/office');
 var Feedback = require('../models/feedback'); 
 var User = require('../models/user'); 
 var router = express.Router();
+var basicAuth = require('../auth/basic');
 
 module.exports  = router; 
+
+router.use(basicAuth.isAuthenticated); 
 
 router.get('/', function(req, res) {
     Information.find({}).exec(function(err, information){
