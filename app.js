@@ -10,6 +10,7 @@ var adminFeedbacksRouter = require('./routes/admin_feedbacks');
 var adminConcertsRouter = require('./routes/admin_concerts'); 
 
 var basicAuth = require('./auth/basic');
+var authConfig = require('./auth/auth-config');
 
 var app  = express(); 
 var port = process.env.PORT || 3000; 
@@ -40,6 +41,9 @@ app.use('/admin/users', basicAuth.isAuthenticated, adminUsersRouter);
 app.use('/admin/offices', basicAuth.isAuthenticated, adminOfficesRouter);
 app.use('/admin/feedbacks',basicAuth.isAuthenticated,  adminFeedbacksRouter); 
 app.use("/admin", adminRouter); 
+
+app.get('/facebook', authConfig.facebookLogin);
+app.get('/facebook/callback', authConfig.facebookCallback); 
 
 app.get('/index', function(req, res){
     res.redirect('/'); 

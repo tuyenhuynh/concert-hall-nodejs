@@ -17,3 +17,4 @@ var authenticate = function(username, password, callback) {
 passport.use(new BasicStrategy(authenticate));
 
 exports.isAuthenticated = passport.authenticate('basic', {session: false}); 
+
